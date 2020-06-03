@@ -8,7 +8,7 @@ Federal Reserve, 10-year US Treasury Bonds, 10-year German Government Bonds.
 
 # How to run the code
 
-python workflow.py config_default.yaml
+    python workflow.py config_default.yaml
 
 # Data sets
 
@@ -20,5 +20,15 @@ Each asset is assigned a key code string which is use to refer to it both in
 the code and in the config files that control the code. 
 The keys for the data sets provided with the repository and a brief description
 of the corresponding data set is here:
+
+key | data set
+--- | ---
+SP500 | SP500 historical data
+SP500TR | SP500 Total Return index accounting for dividends
+BTC | Bitcoin
+BRK | Berkshire Hathaway A-shares
+MAD | Madoff ponzi scheme
+FED | Federal Reserve overnight rates
+DGS10 | 10-year US Treasury bonds
 
 # Description of individual pipeline stages
