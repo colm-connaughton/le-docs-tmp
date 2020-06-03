@@ -32,3 +32,16 @@ FED | Federal Reserve overnight rates
 DGS10 | 10-year US Treasury bonds
 
 # Description of individual pipeline stages
+
+The code is divided into several stages, each of which can be run independently
+if you don't want to recalculate everything:
+
+* extract.py
+* transform.py
+* update.py
+* analysis.py
+* plots.py
+
+# Details of project structure
+
+![Structure of the code](/docs/project_structure.png)
