@@ -98,7 +98,12 @@ derived from the keys listed in the data tables above.
 
    Performs all the calculations for the asset pairs specified in the config file.
    Asset time series are read from the folder `data/4-load/` and results of analyses
-   for different pairs are written to the folder `data/5-analysis/`.
+   for different pairs are written to the folder `data/5-analysis/`. This pipeline stage has a number of sub-stages that can be turned on and off:
+     1. Calculate final equity values for a grid of different leverage values.
+     2. Fit parameters of the leverage parabola to these equity values.
+     3. Calculate how optimal leverage value changes as data window grows.
+     4. Calculate standard deviation of optimal leverage value as a function of data window length.
+     5. Calculate time series of "local" optimal leverage for fixed-length data windows of different duration.
 
 * `plots.py`
 
