@@ -76,6 +76,7 @@ config files are provided:
    ```python workflow.py config_manuscript_numbers.yaml```
 
    This doesn't run the variable window calculations or produce figures to avoid unnecessarily long run-time.
+   The results are written in human-readable format to the file `data/5-analysis/numbers.txt`.
 
 
 
