@@ -71,28 +71,39 @@ the config files should be fairly self-explanatory.
 # Description of individual pipeline stages
 
 The code is divided into several stages, each of which can be run independently
-if you don't want to recalculate everything:
+if you don't want to recalculate everything. Filenames for assets and pairs are
+derived from the keys listed in the data tables above.
 
 * `extract.py`
 
-   Reads csv files containing historical asset time series dats from data/1-source
-   and converts them into a standard pandas dataframe format. This dataframe has column names 'level' and/or 'return' and is indexed by a DateTimeIndex. Missing values are interpolated so that the resulting dataframe has either daily or monthly frequency.
+   Reads csv files containing historical asset time series data from the folder
+   `data/1-source/` and converts them into a standard pandas dataframe format.
+   These are then written in pickle format to the folder `data/2-intermediate/`.
+   The standard dataframe has column names 'level' and/or 'return' and is indexed by a pandas `DateTimeIndex`. Missing values are interpolated so that the resulting dataframe has either daily or monthly frequency.
 
 * `transform.py`
 
-   Transforms the data.
+   Calculates the returns if only levels were provided. Converts annual rates of
+   return (usually for interest rates) to daily or monthly returns. This stage reads
+   the asset data from the pickles in the folder `data/2-intermediate/` and writes the final
+   input data files into the folder `data/4-load/``
 
 * `update.py`
 
-   Not implemented yet.
+   Not implemented yet. A future version of this will provide functionality to
+   automatically update the time series with more recent data from online
+   sources.
 
 * `analysis.py`
 
-   Performs all the calculations.
+   Performs all the calculations for the asset pairs specified in the config file.
+   Asset time series are read from the folder `data/4-load/` and results of analyses
+   for different pairs are written to the folder `data/5-analysis/`.
 
 * `plots.py`
 
-  Creates all the figures.
+  Creates all the figures. Inputs are taken from the folder `data/5-analysis/`
+  and pdf figures are written to the folder `data/6-figures/`.
 
 # Details of project structure
 
