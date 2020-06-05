@@ -12,7 +12,7 @@ Federal Reserve, 10-year US Treasury Bonds, 10-year German Government Bonds.
 Input data sets are times series containing the historical levels or returns for
 various assets.
 A number of publicly available data sets are provided in the folder data/1-source.
-Instructions on how to add new data sources are in the wiki.
+Brief instructions on how to add new data sources are at the bottom of this page.
 Each asset is assigned a key code string which is use to refer to it both in
 the code and in the config files that control the code.
 The keys for the data sets provided with the repository and a brief description
