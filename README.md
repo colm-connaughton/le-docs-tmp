@@ -60,7 +60,7 @@ config files are provided:
 
 * To analyse all of the data for multiple asset pairs run
 
-    python workflow.py config_run_all.yaml
+    ```python workflow.py config_run_all.yaml```
 
 The latter can take a while since the variable window calculations are
 slow - especially for the longer time series.
@@ -73,7 +73,8 @@ the config files should be fairly self-explanatory.
 The code is divided into several stages, each of which can be run independently
 if you don't want to recalculate everything:
 
-* extract.py : Reads csv files containing historical asset time series dats from data/1-source and converts them into a standard pandas dataframe format. This dataframe has
+* extract.py
+Reads csv files containing historical asset time series dats from data/1-source and converts them into a standard pandas dataframe format. This dataframe has
 column names 'level' and/or 'return' and is indexed by a DateTimeIndex. Missing values are interpolated so that the resulting dataframe has either daily or monthly frequency.
 * transform.py
 * update.py
