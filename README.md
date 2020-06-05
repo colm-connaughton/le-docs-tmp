@@ -9,7 +9,7 @@ Federal Reserve, 10-year US Treasury Bonds, 10-year German Government Bonds.
 
 # Data
 
-Input data sets are times series containing the historical levels or returns for
+Input data sets are time series containing the historical levels or returns for
 various assets.
 A number of publicly available data sets are provided in the folder data/1-source.
 Brief instructions on how to add new data sources are at the bottom of this page.
