@@ -54,7 +54,7 @@ To run the code, run the following command in the terminal:
 The config file config_default contains only a single asset pair. A few other
 config files are provided:
 
-* To produce all of the results appearing in the paper run
+* To produce all of the figures appearing in the paper run
 
     ```python workflow.py config_manuscript.yaml```
 
@@ -62,8 +62,13 @@ config files are provided:
 
     ```python workflow.py config_run_all.yaml```
 
-The latter can take a while since the variable window calculations are
-slow - especially for the longer time series.
+  This can take a while since the variable window calculations are slow - especially for the longer time series.
+
+* To check all of the numbers appearing in the table of values in the paper run
+
+   ```python workflow.py config_manuscript_numbers.yaml```
+
+   This doesn't run the variable window calculations or produce figures to avoid unnecessarily long run-time.
 
 The config files are written in [yaml](https://kapeli.com/cheat_sheets/YAML.docset/Contents/Resources/Documents/index) format. Yaml is intended to be human-readable so
 the config files should be fairly self-explanatory.
