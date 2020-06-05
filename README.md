@@ -134,7 +134,7 @@ Market model parameters such as the friction level and borrowing premia for a gi
 
 Several aspects of default behaviour for any given asset pair can be changed using pair-specific files contained in the `modify-defaults/` folder.
 For a pair of assets with keys 'ABC' (risky) and 'XYZ' (riskless), this file should be called `modify-defaults/ABC-XYZ.yaml`.
-Examples are provided for the BTC-FED and SP500-FED pairs. 
+Examples are provided for the BTC-FED and SP500-FED pairs.
 This file allows the user to
 
 * Change the start and end dates for a given asset pair.
@@ -145,7 +145,18 @@ This file allows the user to
 
 For anyone interested in looking at the code, this map shows how the project is structured.
 The idea of leverage efficiency is very simple and the core calculations require only a few lines of  code.
-These core routines are contained in leverage_efficiency.sme_functions.py.
+These core routines are contained in `leverage_efficiency.sme_functions.py`.
 Most of the rest is just managing the flow of data and producing figures.
 
 ![Structure of the code](/docs/project_structure.png)
+
+
+# Adding additional data for new assets
+
+This project has not been designed to allow new data to be added without editing the code. However it should be fairly easy for a user familiar with python to add new data.
+For the benefit of anyone who wants to do this, here are the steps that need to be taken:
+
+1. Add a new csv file to the folder `data/1-source/` containing the new data. Choose a key string that will be used to identify this asset.
+2. Add a new function to `leverage_efficiency/data.py` which reads this file and converts it to the standard pandas dataframe format used throughout the rest of the code. Different data sources have their own peculiarities so it is not easy to automate this. Use the examples provided. The final dataframe should have columns 'level' and/or 'return' (depending on whether the initial csv contains levels or returns) and should be indexed by a `DateTimeIndex` called 'date' which has either a daily or monthly frequency. Use interpolation to fill in weekends and holidays if the data only contains prices for trading days, for example. It is assumed that the resulting index doesn't have any gaps.
+3. Add a line to `extract.py` that runs the function you created in step 2 when the key string you chose in step 1 is included in the config file.
+4. Add market model parameters for the new asset to the  `model_parameters.yaml` file.
