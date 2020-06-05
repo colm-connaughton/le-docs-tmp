@@ -41,7 +41,7 @@ IRDE | Immediate Rates: Less than 24 Hours: Call Money/Interbank Rate for German
 The code reads in data on a number of different assets, performs various optimal
 leverage calculations on asset pairs and produces some numbers and plots for
 each pair. It is structured as a pipeline with each pipeline stage performing
-a distinct step in the analysis. A master python script called workflow.py runs
+a distinct step in the analysis. A master python script called `workflow.py` runs
 the entire pipeline from beginning to end. A config file is used to provide control over
 the assets to be read in, the asset pairs to be analysed and the plots to be
 produced. The config file can also be used to turn on and off individual
@@ -56,7 +56,7 @@ config files are provided:
 
 * To produce all of the results appearing in the paper run
 
-    python workflow.py config_manuscript.yaml
+    ```python workflow.py config_manuscript.yaml```
 
 * To analyse all of the data for multiple asset pairs run
 
@@ -73,13 +73,26 @@ the config files should be fairly self-explanatory.
 The code is divided into several stages, each of which can be run independently
 if you don't want to recalculate everything:
 
-* extract.py
-Reads csv files containing historical asset time series dats from data/1-source and converts them into a standard pandas dataframe format. This dataframe has
-column names 'level' and/or 'return' and is indexed by a DateTimeIndex. Missing values are interpolated so that the resulting dataframe has either daily or monthly frequency.
-* transform.py
-* update.py
-* analysis.py
-* plots.py
+* `extract.py`
+
+   Reads csv files containing historical asset time series dats from data/1-source
+   and converts them into a standard pandas dataframe format. This dataframe has column names 'level' and/or 'return' and is indexed by a DateTimeIndex. Missing values are interpolated so that the resulting dataframe has either daily or monthly frequency.
+
+* `transform.py`
+
+   Transforms the data.
+
+* `update.py`
+
+   Not implemented yet.
+
+* `analysis.py`
+
+   Performs all the calculations.
+
+* `plots.py`
+
+  Creates all the figures.
 
 # Details of project structure
 
