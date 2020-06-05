@@ -121,6 +121,31 @@ derived from the keys listed in the data tables above.
   Creates all the figures. Inputs are taken from the folder `data/5-analysis/`
   and pdf figures are written to the folder `data/6-figures/`.
 
+# Customising and changing default behaviour
+
+Several aspects of the calculations can be easily customised without any need to edit the code directly.
+These are detailed in this section.
+
+### Editing the market model parameters for each asset
+
+Market model parameters such as the friction level and borrowing premia for a given asset can be changed by editing the file `model_parameters.yaml`.
+
+### Overriding default choices for asset pairs:
+
+Several aspects of default behaviour for any given asset pair can be changed using pair-specific files contained in the `modify-defaults/` folder.
+For a pair of assets with keys 'ABC' (risky) and 'XYZ' (riskless), this file should be called `modify-defaults/ABC-XYZ.yaml`.
+Examples are provided for the BTC-FED and SP500-FED pairs. 
+This file allows the user to
+
+* Change the start and end dates for a given asset pair.
+* Restrict which market models are run for the variable window calculations.
+* Specify the data window lengths to be used for fixed window calculations.
+
 # Details of project structure
+
+For anyone interested in looking at the code, this map shows how the project is structured.
+The idea of leverage efficiency is very simple and the core calculations require only a few lines of  code.
+These core routines are contained in leverage_efficiency.sme_functions.py.
+Most of the rest is just managing the flow of data and producing figures.
 
 ![Structure of the code](/docs/project_structure.png)
