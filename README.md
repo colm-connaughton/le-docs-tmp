@@ -21,15 +21,23 @@ the code and in the config files that control the code.
 The keys for the data sets provided with the repository and a brief description
 of the corresponding data set is here:
 
+## "Risky" assets
+
 key | data set | Source
 --- | --- | ---
-SP500 | SP500 historical data | link
-SP500TR | SP500 Total Return index accounting for dividends | link
-BTC | Bitcoin | link
-BRK | Berkshire Hathaway A-shares | link
-MAD | Madoff ponzi scheme | link
-FED | Federal Reserve overnight rates | https://fred.stlouisfed.org/series/FEDFUNDS
-DGS10 | 10-year US Treasury bonds | link
+SP500 | SP500 real time price index | https://finance.yahoo.com/quote/%5ESPX/history?p=%5ESPX
+SP500TR | SP500 Total Return index (accounting for dividends) | https://finance.yahoo.com/quote/%5ESP500TR/history/
+BTC | Bitcoin | https://finance.yahoo.com/quote/BTC-USD/history?p=BTC-USD and https://www.coindesk.com/price/bitcoin
+BRK | Berkshire Hathaway shares | https://finance.yahoo.com/quote/BRK-A/history?p=BRK-A
+MAD | Madoff ponzi scheme | http://lml.org.uk/wp-content/uploads/2019/12/madoff.csv
+DAX | DAX performance index | https://finance.yahoo.com/quote/%5EGDAXI/history?p=%5EGDAXI
+
+## "Riskless" assets
+key | data set | Source
+--- | --- | ---
+FED | Federal Reserve overnight rates | https://fred.stlouisfed.org/series/FEDFUNDS and https://t.co/FDm5p3P828?amp=1
+DGS10 | 10-year US Treasury bonds | https://fred.stlouisfed.org/series/DGS10
+IRDE | Immediate Rates: Less than 24 Hours: Call Money/Interbank Rate for Germany | https://fred.stlouisfed.org/series/IRSTCI01DEM156N
 
 # Description of individual pipeline stages
 
