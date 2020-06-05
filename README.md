@@ -40,12 +40,19 @@ IRDE | Immediate Rates: Less than 24 Hours: Call Money/Interbank Rate for German
 
 The code reads in data on a number of different assets, performs various optimal
 leverage calculations on asset pairs and produces some numbers and plots for
-each pair. It is structured as a pipeline with each pipeline stage performing
-a distinct step in the analysis. A master python script called `workflow.py` runs
-the entire pipeline from beginning to end. A config file is used to provide control over
+each pair.
+It is structured as a pipeline with each pipeline stage performing
+a distinct step in the analysis.
+A master python script called `workflow.py` runs
+the entire pipeline from beginning to end.
+A config file is used to provide control over
 the assets to be read in, the asset pairs to be analysed and the plots to be
-produced. The config file can also be used to turn on and off individual
+produced without needing to edit the code.
+The config file can also be used to turn on and off individual
 pipeline stages.
+The config files are written in [yaml](https://kapeli.com/cheat_sheets/YAML.docset/Contents/Resources/Documents/index) format.
+Yaml is intended to be human-readable.
+The config files should be fairly self-explanatory and editable by the user.
 
 To run the code, run the following command in the terminal:
 
@@ -70,8 +77,7 @@ config files are provided:
 
    This doesn't run the variable window calculations or produce figures to avoid unnecessarily long run-time.
 
-The config files are written in [yaml](https://kapeli.com/cheat_sheets/YAML.docset/Contents/Resources/Documents/index) format. Yaml is intended to be human-readable so
-the config files should be fairly self-explanatory.
+
 
 # Description of individual pipeline stages
 
